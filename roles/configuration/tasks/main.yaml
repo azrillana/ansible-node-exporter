@@ -3,7 +3,7 @@
     name: prometheus
     system: yes
   become: true
-  
+
 - name: Add Prometheus user
   user:
     name: prometheus
