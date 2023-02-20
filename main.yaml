@@ -1,0 +1,17 @@
+- name: Install Required Packages
+  hosts: vm-az
+  become: true
+  roles:
+    - common
+
+- name: Setup Node Exporter
+  hosts: vm-az
+  become: true
+  roles:
+    - setup-node_exporter
+
+- name: Configure Node Exporter
+  hosts: vm-az
+  become: true
+  roles:
+    - configuration

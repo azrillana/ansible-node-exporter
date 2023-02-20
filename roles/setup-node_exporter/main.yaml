@@ -1,0 +1,23 @@
+- name: Extract Node Exporter archive
+  unarchive:
+    src: /tmp/node_exporter.tar.gz
+    dest: /opt/node_exporter
+    remote_src: yes
+    mode: '0755'
+    owner: prometheus
+    group: prometheus
+  become: true
+
+- name: Create systemd service for Node Exporter
+  systemd:
+    name: node_exporter
+    enabled: yes
+    state: started
+    daemon_reload: yes
+    user: prometheus
+    exec_start: /opt/node_exporter/node_exporter
+    private_tmp: yes
+    protect_system: full
+    protect_home: yes
+    restart: always
+

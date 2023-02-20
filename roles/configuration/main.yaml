@@ -1,0 +1,14 @@
+- name: Create Prometheus user and group
+  group:
+    name: prometheus
+    system: yes
+  become: true
+  
+- name: Add Prometheus user
+  user:
+    name: prometheus
+    group: prometheus
+    system: yes
+    home: /var/lib/prometheus
+    shell: /bin/false
+  become: true
