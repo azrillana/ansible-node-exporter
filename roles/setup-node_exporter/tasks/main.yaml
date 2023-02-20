@@ -13,11 +13,11 @@
     name: node_exporter
     enabled: yes
     state: started
-    daemon_reload: yes
     user: prometheus
     exec_start: /opt/node_exporter/node_exporter
     private_tmp: yes
     protect_system: full
     protect_home: yes
     restart: always
+  notify: Restart Node Exporter
 
