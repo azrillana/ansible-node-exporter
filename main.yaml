@@ -4,14 +4,14 @@
   roles:
     - common
 
+- name: Create User Prometheus
+  hosts: vm-az
+  become: true
+  roles:
+    - configuration
+
 - name: Setup Node Exporter
   hosts: vm-az
   become: true
   roles:
     - setup-node_exporter
-
-- name: Configure Node Exporter
-  hosts: vm-az
-  become: true
-  roles:
-    - configuration
