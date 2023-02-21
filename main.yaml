@@ -1,17 +1,17 @@
 - name: Install Required Packages
-  hosts: vm-az
+  hosts: dev-ak-linux
   become: true
   roles:
     - common
 
 - name: Create User node_exporter
-  hosts: vm-az
+  hosts: dev-ak-linux
   become: true
   roles:
     - configuration
 
 - name: Setup Node Exporter
-  hosts: vm-az
+  hosts: dev-ak-linux
   become: true
   roles:
     - setup-node_exporter
