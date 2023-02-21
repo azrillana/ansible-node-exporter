@@ -10,7 +10,8 @@
 
 - name: Copy node_exporter To Bin Folder
   copy:
-    remote_src: '/opt/node_exporter'
+    src: '/opt/node_exporter'
+    remote_src: yes
     dest: '/usr/local/bin'
     mode: '755'
   become: true
