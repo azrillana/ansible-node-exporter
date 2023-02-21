@@ -1,14 +1,14 @@
-- name: Create Prometheus user and group
+- name: Create node_exporter Group
   group:
-    name: prometheus
+    name: node_exporter
     system: yes
   become: true
 
-- name: Add Prometheus user
+- name: Add node_exporter User
   user:
-    name: prometheus
-    group: prometheus
+    name: node_exporter
+    group: node_exporter
     system: yes
-    home: /var/lib/prometheus
+    home: /var/lib/node_exporter
     shell: /bin/false
   become: true

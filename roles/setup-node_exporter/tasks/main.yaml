@@ -4,20 +4,21 @@
     dest: /opt/node_exporter
     remote_src: yes
     mode: '0755'
-    owner: prometheus
-    group: prometheus
+    owner: node_exporter
+    group: node_exporter
+  become: true
+
+- name: Copy node_exporter To Bin Folder
+  copy:
+    src: '/opt/node_exporter'
+    dest: '/usr/local/bin'
+    mode: '755'
   become: true
 
 - name: Create systemd service for Node Exporter
-  systemd:
-    name: node_exporter
-    enabled: yes
-    state: started
-    user: prometheus
-    exec_start: /opt/node_exporter/node_exporter
-    private_tmp: yes
-    protect_system: full
-    protect_home: yes
-    restart: always
+  copy:
+    src: '/files/node_exporter.service'
+    dest: '/etc/systemd/system/'
+    mode: '755'
   notify: Restart Node Exporter
 

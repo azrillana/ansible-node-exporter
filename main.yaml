@@ -4,7 +4,7 @@
   roles:
     - common
 
-- name: Create User Prometheus
+- name: Create User node_exporter
   hosts: vm-az
   become: true
   roles:
