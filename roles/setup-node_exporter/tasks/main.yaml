@@ -10,7 +10,7 @@
 
 - name: Copy node_exporter To Bin Folder
   copy:
-    src: '/opt/node_exporter'
+    src: '/opt/node_exporter/node_exporter-1.5.0.linux-amd64/node_exporter'
     remote_src: yes
     dest: '/usr/local/bin'
     mode: '755'
@@ -18,7 +18,7 @@
 
 - name: Create systemd service for Node Exporter
   copy:
-    src: '/files/node_exporter.service'
+    src: './files/node_exporter.service'
     dest: '/etc/systemd/system/'
     mode: '755'
   notify: Restart Node Exporter
