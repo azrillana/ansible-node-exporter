@@ -12,3 +12,10 @@
     home: /var/lib/node_exporter
     shell: /bin/false
   become: true
+
+- name: Create Directory node_exporter
+  file:
+    path: "/opt/node_exporter"
+    state: directory
+  become: true
+
