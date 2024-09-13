@@ -1,17 +1,17 @@
 - name: Install Required Packages
-  hosts: testing-ak-linux
+  hosts: node-exporter
   become: true
   roles:
     - common
 
 - name: Create User node_exporter
-  hosts: testing-ak-linux
+  hosts: node-exporter
   become: true
   roles:
     - configuration
 
 - name: Setup Node Exporter
-  hosts: testing-ak-linux
+  hosts: node-exporter
   become: true
   roles:
     - setup-node_exporter
